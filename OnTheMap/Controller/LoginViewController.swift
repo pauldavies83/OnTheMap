@@ -21,9 +21,17 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginButton(_ sender: Any) {
-        let alertVC = UIAlertController(title: "Login Failed", message: "message", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        show(alertVC, sender: nil)
+        if emailTextField.text != nil && passwordTextField.text != nil {
+            UdacityAPI.createSession(username: emailTextField.text!, password: passwordTextField.text!) { (success, error) in
+                if success {
+                    // go to next screen
+                } else {
+                    let alertVC = UIAlertController(title: "Login Failed", message: error?.description, preferredStyle: .alert)
+                    alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.show(alertVC, sender: nil)
+                }
+            }
+        }
     }
     
     @IBAction func signupButton(_ sender: Any) {
