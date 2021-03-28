@@ -29,11 +29,11 @@ class UdacityAPI {
     enum Endpoints {
         static let base = "https://onthemap-api.udacity.com/v1"
         
-        case createSession
+        case session
         
         var stringValue: String {
             switch self {
-                case .createSession: return Endpoints.base + "/session"
+                case .session: return Endpoints.base + "/session"
             }
         }
         
@@ -80,7 +80,7 @@ class UdacityAPI {
     
     class func createSession(username: String, password: String, completion: @escaping ((Bool, UdacityAPIError?) -> Void)) {
         let body = CreateSessionRequest.build(username: username, password: password)
-        taskForPOSTRequest(url: Endpoints.createSession.url, responseType: CreateSessionResponse.self, body: body) { (response, error) in
+        taskForPOSTRequest(url: Endpoints.session.url, responseType: CreateSessionResponse.self, body: body) { (response, error) in
             if let response = response {
                 Auth.userId = response.account.key
                 Auth.sessionId = response.session.id
@@ -89,5 +89,35 @@ class UdacityAPI {
                 completion(false, error)
             }
         }
+    }
+    
+    class func logout(completion: @escaping ((Bool, UdacityAPIError?) -> Void)) {
+        var request = URLRequest(url: Endpoints.session.url)
+        request.httpMethod = "DELETE"
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" {
+                xsrfCookie = cookie
+            }
+        }
+        if let xsrfCookie = xsrfCookie {
+          request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            if error != nil {
+                DispatchQueue.main.async {
+                    completion(false, UdacityAPIError.BadResponse)
+                }
+            } else {
+                Auth.sessionId = ""
+                Auth.userId = ""
+                DispatchQueue.main.async {
+                    completion(true, nil)
+                }
+            }
+        }
+        task.resume()
     }
 }

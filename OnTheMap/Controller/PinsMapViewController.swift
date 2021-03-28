@@ -14,7 +14,15 @@ class PinsMapViewController: UIViewController {
     }
     
     @IBAction func logout(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        UdacityAPI.logout { (success, error) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                let alertVC = UIAlertController(title: "Logout Failed", message: error?.description, preferredStyle: .alert)
+                alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.show(alertVC, sender: nil)
+            }
+        }
     }
 
 }
