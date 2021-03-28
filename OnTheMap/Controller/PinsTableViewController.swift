@@ -8,7 +8,7 @@
 import UIKit
 
 class PinsTableViewController: UITableViewController {
-
+        
     override func viewDidLoad() {
         super.viewDidLoad()
     }
