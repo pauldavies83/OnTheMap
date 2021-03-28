@@ -14,15 +14,20 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var activityView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = 5
+        
+        configureUI(isLoading: false)
     }
 
     @IBAction func loginButton(_ sender: Any) {
         if emailTextField.text != nil && passwordTextField.text != nil {
+            configureUI(isLoading: true)
             UdacityAPI.createSession(username: emailTextField.text!, password: passwordTextField.text!) { (success, error) in
+                self.configureUI(isLoading: false)
                 if success {
                     // go to next screen
                 } else {
@@ -36,6 +41,14 @@ class LoginViewController: UIViewController {
     
     @IBAction func signupButton(_ sender: Any) {
         UIApplication.shared.open(signupUrl, options: [:], completionHandler: nil)
+    }
+    
+    
+    func configureUI(isLoading: Bool) {
+        activityView.isHidden = !isLoading
+        emailTextField.isEnabled = !isLoading
+        passwordTextField.isEnabled = !isLoading
+        loginButton.isEnabled = !isLoading
     }
 }
 

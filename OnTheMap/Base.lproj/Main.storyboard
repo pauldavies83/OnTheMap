@@ -83,20 +83,26 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="v1T-na-jXo">
+                                <rect key="frame" x="197" y="412" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VyW-kf-hnu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1HT-j7-8tI"/>
                             <constraint firstItem="VyW-kf-hnu" firstAttribute="top" secondItem="bOH-ET-4IF" secondAttribute="bottom" constant="36" id="9yZ-0e-ces"/>
+                            <constraint firstItem="v1T-na-jXo" firstAttribute="top" secondItem="VyW-kf-hnu" secondAttribute="bottom" constant="24" id="FVJ-Zg-7T0"/>
                             <constraint firstItem="VyW-kf-hnu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="J7v-Oh-ttl"/>
                             <constraint firstItem="Yca-Yq-b73" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="136" id="Pex-Kc-TRc"/>
+                            <constraint firstItem="v1T-na-jXo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d4c-1l-rzg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VyW-kf-hnu" secondAttribute="trailing" constant="64" id="dvm-B3-ycn"/>
                             <constraint firstItem="bOH-ET-4IF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="eeP-FF-bnq"/>
                             <constraint firstItem="bOH-ET-4IF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mJu-QG-DKz"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityView" destination="v1T-na-jXo" id="GNK-Ts-kk7"/>
                         <outlet property="emailTextField" destination="Yca-Yq-b73" id="fDn-V6-m4S"/>
                         <outlet property="loginButton" destination="d8Q-sS-PPI" id="gpp-U4-c2O"/>
                         <outlet property="passwordTextField" destination="3Ad-Zn-MEc" id="RWq-1k-7j2"/>
