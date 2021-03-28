@@ -29,7 +29,9 @@ class LoginViewController: UIViewController {
             UdacityAPI.createSession(username: emailTextField.text!, password: passwordTextField.text!) { (success, error) in
                 self.configureUI(isLoading: false)
                 if success {
-                    // go to next screen
+                    let next = self.storyboard?.instantiateViewController(identifier: "PinsTabBarController") as! UITabBarController
+                    next.modalPresentationStyle = .fullScreen
+                    self.present(next, animated: true, completion: nil)
                 } else {
                     let alertVC = UIAlertController(title: "Login Failed", message: error?.description, preferredStyle: .alert)
                     alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
