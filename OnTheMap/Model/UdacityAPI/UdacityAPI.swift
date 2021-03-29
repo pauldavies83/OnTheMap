@@ -30,16 +30,40 @@ class UdacityAPI {
         static let base = "https://onthemap-api.udacity.com/v1"
         
         case session
+        case locations
         
         var stringValue: String {
             switch self {
                 case .session: return Endpoints.base + "/session"
+                case .locations: return Endpoints.base + "/StudentLocation?limit=100"
             }
         }
         
         var url: URL {
             return URL(string: stringValue)!
         }
+    }
+    
+    @discardableResult class func taskForGETRequest<ResponseType: Decodable>(url: URL, response: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionTask {
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else {
+                completion(nil, error)
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let responseObject = try decoder.decode(ResponseType.self, from: data)
+                DispatchQueue.main.async {
+                    completion(responseObject, nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+            }
+        }
+        task.resume()
+        return task
     }
     
     class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType, completion: @escaping (ResponseType?, UdacityAPIError?) -> Void) {
@@ -119,5 +143,15 @@ class UdacityAPI {
             }
         }
         task.resume()
+    }
+    
+    class func getLocations(completion: @escaping ([Location], UdacityAPIError?) -> Void) {
+        taskForGETRequest(url: Endpoints.locations.url, response: LocationsResponse.self) { (response, error) in
+            if let response = response {
+                completion(response.results, nil)
+            } else {
+                completion([], UdacityAPIError.Other(error))
+            }
+        }
     }
 }
