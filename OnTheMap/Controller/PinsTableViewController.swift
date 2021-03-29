@@ -46,7 +46,16 @@ class PinsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath)
         cell.textLabel?.text = "\(locations[indexPath.row].firstName) \(locations[indexPath.row].lastName)"
+        cell.detailTextLabel?.text = locations[indexPath.row].mediaURL
         return cell
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let urlToOpen = URL(string: locations[indexPath.row].mediaURL)
+        if urlToOpen != nil {
+            UIApplication.shared.open(urlToOpen!, options: [:], completionHandler: nil)
+        } else {
+            return
+        }
+    }
 }
