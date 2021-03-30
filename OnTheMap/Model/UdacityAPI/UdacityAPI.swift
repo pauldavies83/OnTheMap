@@ -35,12 +35,14 @@ class UdacityAPI {
         
         case session
         case userInfo(String)
+        case mostRecentStudentLocations
         case studentLocation
         
         var stringValue: String {
             switch self {
                 case .session: return Endpoints.base + "/session"
                 case .userInfo(let userId): return Endpoints.base + "/users/\(userId)"
+                case .mostRecentStudentLocations: return Endpoints.base + "/StudentLocation?order=-updatedAt&limit=100"
                 case .studentLocation: return Endpoints.base + "/StudentLocation"
             }
         }
@@ -154,7 +156,7 @@ class UdacityAPI {
     }
     
     class func getStudentLocations(completion: @escaping ([StudentInformation], UdacityAPIError?) -> Void) {
-        taskForGETRequest(url: Endpoints.studentLocation.url, response: StudentInformationResponse.self) { (response, error) in
+        taskForGETRequest(url: Endpoints.mostRecentStudentLocations.url, response: StudentInformationResponse.self) { (response, error) in
             if let response = response {
                 completion(response.results, nil)
             } else {
