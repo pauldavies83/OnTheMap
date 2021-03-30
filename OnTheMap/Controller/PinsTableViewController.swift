@@ -16,6 +16,10 @@ class PinsTableViewController: PinsViewController, UITableViewDelegate, UITableV
     
         tableView.delegate = self
         tableView.dataSource = self
+        
+        super.refreshDataCompleted = {
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source

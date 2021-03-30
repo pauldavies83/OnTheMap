@@ -14,6 +14,8 @@ class PinsViewController: UIViewController {
         return locationsDataSource.studentInformation
     }
     
+    var refreshDataCompleted: (() -> Void)? = nil
+    
     let uiBusy = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
     var refreshButton: UIBarButtonItem?
 
@@ -52,6 +54,7 @@ class PinsViewController: UIViewController {
         locationsDataSource.refreshData { (error) in
             uiBusy.stopAnimating()
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_refresh"), style: .plain, target: self, action: #selector(self.refresh))
+            self.refreshDataCompleted?()
         }
     }
 
