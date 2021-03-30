@@ -39,7 +39,7 @@ class VerifyLocationViewController: UIViewController, MKMapViewDelegate {
     @IBAction func finish(_ sender: Any) {
         UdacityAPI.postLocation(mediaURL: linkText!, mapString: locationText!, latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude) { (success, error) in
             if success {
-                self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+                self.presentingViewController?.dismiss(animated: true, completion: nil)
             } else {
                 self.presentErrorAlert(title: "Error posting location", message: error?.localizedDescription)
             }

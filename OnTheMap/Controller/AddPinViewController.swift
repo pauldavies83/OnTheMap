@@ -29,7 +29,7 @@ class AddPinViewController: UIViewController {
         vc.location = location
         vc.locationText = description ?? locationText.text
         vc.linkText = linkText.text
-        self.present(vc, animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func findLocation(_ sender: Any) {
