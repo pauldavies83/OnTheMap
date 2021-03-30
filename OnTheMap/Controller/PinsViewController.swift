@@ -9,9 +9,9 @@ import UIKit
 
 class PinsViewController: UIViewController {
 
-    let locationsDataSource =  (UIApplication.shared.delegate as! LocationDataSource)
-    var locations: [Location] {
-        return locationsDataSource.locations
+    let locationsDataSource =  (UIApplication.shared.delegate as! StudentInformationDataSource)
+    var locations: [StudentInformation] {
+        return locationsDataSource.studentInformation
     }
     
     let uiBusy = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
@@ -49,7 +49,7 @@ class PinsViewController: UIViewController {
         uiBusy.isUserInteractionEnabled = false
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: uiBusy)
 
-        locationsDataSource.refreshLocations { (error) in
+        locationsDataSource.refreshData { (error) in
             uiBusy.stopAnimating()
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_refresh"), style: .plain, target: self, action: #selector(self.refresh))
         }

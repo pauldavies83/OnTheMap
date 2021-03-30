@@ -7,21 +7,21 @@
 
 import UIKit
 
-protocol LocationDataSource {
-    var locations: [Location] { get }
+protocol StudentInformationDataSource {
+    var studentInformation: [StudentInformation] { get }
     
-    func refreshLocations(completion: @escaping (Error?) -> Void)
+    func refreshData(completion: @escaping (Error?) -> Void)
 }
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, LocationDataSource {
+class AppDelegate: UIResponder, UIApplicationDelegate, StudentInformationDataSource {
     
-    var locations: [Location] = []
+    var studentInformation: [StudentInformation] = []
     
-    func refreshLocations(completion: @escaping (Error?) -> Void) {
-        UdacityAPI.getLocations { (locations, error) in
+    func refreshData(completion: @escaping (Error?) -> Void) {
+        UdacityAPI.getStudentLocations { (locations, error) in
             if error == nil {
-                self.locations = locations
+                self.studentInformation = locations
             }
             completion(error)
         }

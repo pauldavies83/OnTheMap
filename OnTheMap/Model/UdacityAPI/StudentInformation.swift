@@ -7,11 +7,11 @@
 
 import UIKit
 
-struct LocationsResponse: Codable {
-    let results: [Location]
+struct StudentInformationResponse: Codable {
+    let results: [StudentInformation]
 }
 
-struct Location: Codable {
+struct StudentInformation: Codable {
     let createdAt: String
     let firstName: String
     let lastName: String

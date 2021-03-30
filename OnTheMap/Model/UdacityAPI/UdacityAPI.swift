@@ -30,12 +30,12 @@ class UdacityAPI {
         static let base = "https://onthemap-api.udacity.com/v1"
         
         case session
-        case locations
+        case studentLocations
         
         var stringValue: String {
             switch self {
                 case .session: return Endpoints.base + "/session"
-                case .locations: return Endpoints.base + "/StudentLocation?limit=100"
+                case .studentLocations: return Endpoints.base + "/StudentLocation?limit=100"
             }
         }
         
@@ -145,8 +145,8 @@ class UdacityAPI {
         task.resume()
     }
     
-    class func getLocations(completion: @escaping ([Location], UdacityAPIError?) -> Void) {
-        taskForGETRequest(url: Endpoints.locations.url, response: LocationsResponse.self) { (response, error) in
+    class func getStudentLocations(completion: @escaping ([StudentInformation], UdacityAPIError?) -> Void) {
+        taskForGETRequest(url: Endpoints.studentLocations.url, response: StudentInformationResponse.self) { (response, error) in
             if let response = response {
                 completion(response.results, nil)
             } else {

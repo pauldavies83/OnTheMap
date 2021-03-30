@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
             configureUI(isLoading: true)
             UdacityAPI.createSession(username: emailTextField.text!, password: passwordTextField.text!) { (success, error) in
                 if success {
-                    (UIApplication.shared.delegate as! LocationDataSource).refreshLocations { (error) in
+                    (UIApplication.shared.delegate as! StudentInformationDataSource).refreshData { (error) in
                         self.configureUI(isLoading: false)
                         self.presentPinsTabBarController()
                     }
