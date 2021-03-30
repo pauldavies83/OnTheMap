@@ -21,6 +21,7 @@
 		A97AC8AF26125DE000468460 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AC8AE26125DE000468460 /* StudentInformation.swift */; };
 		A97AC8B62613348600468460 /* PinsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AC8B52613348600468460 /* PinsViewController.swift */; };
 		A97AC8BA2613562B00468460 /* AddPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AC8B92613562B00468460 /* AddPinViewController.swift */; };
+		A97AC8BF2613605500468460 /* VerifyLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AC8BE2613605500468460 /* VerifyLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		A97AC8AE26125DE000468460 /* StudentInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 		A97AC8B52613348600468460 /* PinsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsViewController.swift; sourceTree = "<group>"; };
 		A97AC8B92613562B00468460 /* AddPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPinViewController.swift; sourceTree = "<group>"; };
+		A97AC8BE2613605500468460 /* VerifyLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				A934F9422610D95400D54F74 /* PinsTableViewController.swift */,
 				A97AC8B52613348600468460 /* PinsViewController.swift */,
 				A97AC8B92613562B00468460 /* AddPinViewController.swift */,
+				A97AC8BE2613605500468460 /* VerifyLocationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				A97AC8B62613348600468460 /* PinsViewController.swift in Sources */,
 				A908D9662610AE86001832BD /* AppDelegate.swift in Sources */,
 				A908D9682610AE86001832BD /* SceneDelegate.swift in Sources */,
+				A97AC8BF2613605500468460 /* VerifyLocationViewController.swift in Sources */,
 				A908D98A2610BF53001832BD /* CreateSessionResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

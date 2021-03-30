@@ -61,6 +61,12 @@ class LoginViewController: UIViewController {
         emailTextField.isEnabled = !isLoading
         passwordTextField.isEnabled = !isLoading
         loginButton.isEnabled = !isLoading
+        
+        if (isLoading) {
+            activityView.startAnimating()
+        } else {
+            activityView.stopAnimating()
+        }
     }
 }
 
