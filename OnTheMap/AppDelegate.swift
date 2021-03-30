@@ -7,8 +7,25 @@
 
 import UIKit
 
+protocol LocationDataSource {
+    var locations: [Location] { get }
+    
+    func refreshLocations(completion: @escaping (Error?) -> Void)
+}
+
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, LocationDataSource {
+    
+    var locations: [Location] = []
+    
+    func refreshLocations(completion: @escaping (Error?) -> Void) {
+        UdacityAPI.getLocations { (locations, error) in
+            if error == nil {
+                self.locations = locations
+            }
+            completion(error)
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

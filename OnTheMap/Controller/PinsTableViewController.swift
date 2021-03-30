@@ -9,14 +9,35 @@ import UIKit
 
 class PinsTableViewController: UITableViewController {
     
-    var locations: [Location] = []
-        
+    let locationsDataSource =  (UIApplication.shared.delegate as! LocationDataSource)
+    var locations: [Location] {
+        return locationsDataSource.locations
+    }
+    
+    let uiBusy = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+    var refreshButton: UIBarButtonItem?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UdacityAPI.getLocations { (locations, error) in
-            self.locations = locations
-            self.tableView.reloadData()
+        uiBusy.hidesWhenStopped = true
+        uiBusy.isUserInteractionEnabled = false
+        
+        refreshButton = UIBarButtonItem(image: UIImage(named: "icon_refresh"), style: .plain, target: self, action: #selector(self.refresh))
+        
+        configureUI(isLoading: false)
+    }
+    
+    @objc func refresh() {
+        let uiBusy = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+        uiBusy.hidesWhenStopped = true
+        uiBusy.startAnimating()
+        uiBusy.isUserInteractionEnabled = false
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: uiBusy)
+        
+        locationsDataSource.refreshLocations { (error) in
+            uiBusy.stopAnimating()
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_refresh"), style: .plain, target: self, action: #selector(self.refresh))
         }
     }
     
@@ -29,6 +50,16 @@ class PinsTableViewController: UITableViewController {
                 alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.show(alertVC, sender: nil)
             }
+        }
+    }
+    
+    func configureUI(isLoading: Bool) {
+        if isLoading {
+            uiBusy.startAnimating()
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: uiBusy)
+        } else {
+            uiBusy.stopAnimating()
+            self.navigationItem.rightBarButtonItem = refreshButton
         }
     }
 
