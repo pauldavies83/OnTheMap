@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol FirstFiveSecure {
+    // marker protocol for first five character security dropping
+}
+
 class UdacityAPI {
     
     struct Auth {
@@ -30,12 +34,14 @@ class UdacityAPI {
         static let base = "https://onthemap-api.udacity.com/v1"
         
         case session
-        case studentLocations
+        case userInfo(String)
+        case studentLocation
         
         var stringValue: String {
             switch self {
                 case .session: return Endpoints.base + "/session"
-                case .studentLocations: return Endpoints.base + "/StudentLocation?limit=100"
+                case .userInfo(let userId): return Endpoints.base + "/users/\(userId)"
+                case .studentLocation: return Endpoints.base + "/StudentLocation"
             }
         }
         
@@ -52,7 +58,8 @@ class UdacityAPI {
             }
             let decoder = JSONDecoder()
             do {
-                let responseObject = try decoder.decode(ResponseType.self, from: data)
+                let parsableData = ResponseType.self is FirstFiveSecure.Type ? data.dropFirst(5) : data
+                let responseObject = try decoder.decode(ResponseType.self, from: parsableData)
                 DispatchQueue.main.async {
                     completion(responseObject, nil)
                 }
@@ -89,7 +96,8 @@ class UdacityAPI {
             }
             let decoder = JSONDecoder()
             do {
-                let responseObject = try decoder.decode(ResponseType.self, from: data.dropFirst(5))
+                let parsableData = ResponseType.self is FirstFiveSecure.Type ? data.dropFirst(5) : data
+                let responseObject = try decoder.decode(ResponseType.self, from: parsableData)
                 DispatchQueue.main.async {
                     completion(responseObject, nil)
                 }
@@ -146,12 +154,31 @@ class UdacityAPI {
     }
     
     class func getStudentLocations(completion: @escaping ([StudentInformation], UdacityAPIError?) -> Void) {
-        taskForGETRequest(url: Endpoints.studentLocations.url, response: StudentInformationResponse.self) { (response, error) in
+        taskForGETRequest(url: Endpoints.studentLocation.url, response: StudentInformationResponse.self) { (response, error) in
             if let response = response {
                 completion(response.results, nil)
             } else {
                 completion([], UdacityAPIError.Other(error))
             }
         }
+    }
+    
+    class func postLocation(mediaURL: String, mapString: String, latitude: Double, longitude: Double, completion: @escaping (Bool, UdacityAPIError?) -> Void) {
+        taskForGETRequest(url: Endpoints.userInfo(Auth.userId).url, response: UserInfo.self) { (userInfoResponse, error) in
+            if let userInfoResponse = userInfoResponse {
+                let postRequestBody = PostLocationRequest(uniqueKey: "", firstName: userInfoResponse.firstName, lastName: userInfoResponse.lastName, mapString: mapString, mediaURL: mediaURL, latitude: latitude, longitude: longitude)
+                taskForPOSTRequest(url: Endpoints.studentLocation.url, responseType: PostLocationResponse.self, body: postRequestBody) { (response, error) in
+                    if error != nil {
+                        completion(false, UdacityAPIError.BadResponse)
+                    } else {
+                        completion(true, nil)
+                    }
+                }
+            } else {
+                completion(false, UdacityAPIError.Other(error))
+            }
+        }
+            
+    
     }
 }

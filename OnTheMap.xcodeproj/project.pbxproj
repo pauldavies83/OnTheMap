@@ -22,6 +22,9 @@
 		A97AC8B62613348600468460 /* PinsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AC8B52613348600468460 /* PinsViewController.swift */; };
 		A97AC8BA2613562B00468460 /* AddPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AC8B92613562B00468460 /* AddPinViewController.swift */; };
 		A97AC8BF2613605500468460 /* VerifyLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AC8BE2613605500468460 /* VerifyLocationViewController.swift */; };
+		A97AC8C42613AACD00468460 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AC8C32613AACD00468460 /* UserInfo.swift */; };
+		A97AC8C82613ABEC00468460 /* PostLocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AC8C72613ABEC00468460 /* PostLocationRequest.swift */; };
+		A97AC8CB2613AD4E00468460 /* PostLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AC8CA2613AD4E00468460 /* PostLocationResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		A97AC8B52613348600468460 /* PinsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsViewController.swift; sourceTree = "<group>"; };
 		A97AC8B92613562B00468460 /* AddPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPinViewController.swift; sourceTree = "<group>"; };
 		A97AC8BE2613605500468460 /* VerifyLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyLocationViewController.swift; sourceTree = "<group>"; };
+		A97AC8C32613AACD00468460 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		A97AC8C72613ABEC00468460 /* PostLocationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationRequest.swift; sourceTree = "<group>"; };
+		A97AC8CA2613AD4E00468460 /* PostLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,9 @@
 				A908D9862610BF12001832BD /* CreateSessionRequest.swift */,
 				A908D9892610BF53001832BD /* CreateSessionResponse.swift */,
 				A97AC8AE26125DE000468460 /* StudentInformation.swift */,
+				A97AC8C32613AACD00468460 /* UserInfo.swift */,
+				A97AC8C72613ABEC00468460 /* PostLocationRequest.swift */,
+				A97AC8CA2613AD4E00468460 /* PostLocationResponse.swift */,
 			);
 			path = UdacityAPI;
 			sourceTree = "<group>";
@@ -188,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A97AC8C82613ABEC00468460 /* PostLocationRequest.swift in Sources */,
 				A908D97F2610BCFA001832BD /* UdacityAPI.swift in Sources */,
 				A97AC8BA2613562B00468460 /* AddPinViewController.swift in Sources */,
 				A934F9432610D95400D54F74 /* PinsTableViewController.swift in Sources */,
@@ -199,7 +209,9 @@
 				A908D9662610AE86001832BD /* AppDelegate.swift in Sources */,
 				A908D9682610AE86001832BD /* SceneDelegate.swift in Sources */,
 				A97AC8BF2613605500468460 /* VerifyLocationViewController.swift in Sources */,
+				A97AC8C42613AACD00468460 /* UserInfo.swift in Sources */,
 				A908D98A2610BF53001832BD /* CreateSessionResponse.swift in Sources */,
+				A97AC8CB2613AD4E00468460 /* PostLocationResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

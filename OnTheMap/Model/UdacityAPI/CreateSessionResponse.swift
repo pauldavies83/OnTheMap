@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CreateSessionResponse: Codable {
+struct CreateSessionResponse: Codable, FirstFiveSecure {
     let account: Account
     let session: Session
     

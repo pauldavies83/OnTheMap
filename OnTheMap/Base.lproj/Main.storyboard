@@ -217,7 +217,7 @@
                                             <constraint firstAttribute="height" constant="40" id="eKl-82-FUV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="url"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="url"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bgz-aQ-d70">
                                         <rect key="frame" x="0.0" y="96" width="286" height="40"/>
