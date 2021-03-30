@@ -112,82 +112,27 @@
             </objects>
             <point key="canvasLocation" x="-203" y="115"/>
         </scene>
-        <!--On The Map-->
-        <scene sceneID="ZLK-be-MQn">
-            <objects>
-                <tableViewController storyboardIdentifier="PinsTableViewController" id="AZV-fn-C6Q" customClass="PinsTableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Vd-FZ-9NO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="locationCell" textLabel="PiM-0j-j3p" detailTextLabel="F1p-tZ-R9Z" imageView="8h0-cp-1dt" style="IBUITableViewCellStyleSubtitle" id="xy1-7J-iRp">
-                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xy1-7J-iRp" id="XrI-Sw-QXb">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PiM-0j-j3p">
-                                            <rect key="frame" x="59" y="10" width="33" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F1p-tZ-R9Z">
-                                            <rect key="frame" x="59" y="31.5" width="33" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="icon_pin" id="8h0-cp-1dt">
-                                            <rect key="frame" x="20" y="15.5" width="24" height="24"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </imageView>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="AZV-fn-C6Q" id="JvC-nl-UIg"/>
-                            <outlet property="delegate" destination="AZV-fn-C6Q" id="nm2-Gz-tBO"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="On The Map" id="Jp7-2a-6X2">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="wTp-tS-iG8" userLabel="LOGOUT">
-                            <connections>
-                                <action selector="logout:" destination="AZV-fn-C6Q" id="052-7f-6aU"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P9z-IJ-Frl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2312" y="514"/>
-        </scene>
-        <!--Navigation Controller-->
+        <!--Pins Navigation Controller-->
         <scene sceneID="pZA-bj-eXm">
             <objects>
-                <navigationController id="hQm-aV-rJC" sceneMemberID="viewController">
+                <navigationController id="hQm-aV-rJC" customClass="PinsNavigationController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="icon_listview-deselected" id="VhL-gK-sbo"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZzM-Ge-ahe">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="AZV-fn-C6Q" kind="relationship" relationship="rootViewController" id="R8f-QF-ZEZ"/>
+                        <segue destination="hYK-c8-vT9" kind="relationship" relationship="rootViewController" id="raf-oG-cqT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ooc-OC-N0N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1596" y="514"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Pins Navigation Controller-->
         <scene sceneID="A9c-AN-itx">
             <objects>
-                <navigationController id="Z54-7Q-qzY" sceneMemberID="viewController">
+                <navigationController id="Z54-7Q-qzY" customClass="PinsNavigationController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="icon_mapview-deselected" id="hf9-50-kVz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3tJ-us-9P0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -201,7 +146,7 @@
             </objects>
             <point key="canvasLocation" x="1596" y="-200"/>
         </scene>
-        <!--On The Map-->
+        <!--Pins Map View Controller-->
         <scene sceneID="cZ6-jl-QgF">
             <objects>
                 <viewController storyboardIdentifier="PinsMapViewController" id="Z3t-zu-R9q" customClass="PinsMapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -211,13 +156,7 @@
                         <viewLayoutGuide key="safeArea" id="riV-em-iBV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="On The Map" id="bDS-ZP-4yM">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="zxJ-2h-JZ0">
-                            <connections>
-                                <action selector="logout:" destination="Z3t-zu-R9q" id="qAr-4Q-7Jw"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="bDS-ZP-4yM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y7j-aM-cr9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -240,6 +179,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FCL-uD-6YG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="707" y="115"/>
+        </scene>
+        <!--Pins Table View Controller-->
+        <scene sceneID="Kdy-tc-u0v">
+            <objects>
+                <viewController id="hYK-c8-vT9" customClass="PinsTableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dzd-19-oOm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6cb-yc-QEA">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationCell" textLabel="vSl-qZ-ZEw" detailTextLabel="m8D-rk-fVi" imageView="OSV-LY-kNq" style="IBUITableViewCellStyleSubtitle" id="OiX-U0-wWg">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OiX-U0-wWg" id="jNa-8I-pWy">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vSl-qZ-ZEw">
+                                                    <rect key="frame" x="59" y="10" width="33" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m8D-rk-fVi">
+                                                    <rect key="frame" x="59" y="31.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="icon_pin" id="OSV-LY-kNq">
+                                                    <rect key="frame" x="20" y="15.5" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="H30-Kl-KIx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6cb-yc-QEA" firstAttribute="bottom" secondItem="H30-Kl-KIx" secondAttribute="bottom" id="8Jn-ee-rJz"/>
+                            <constraint firstItem="6cb-yc-QEA" firstAttribute="top" secondItem="H30-Kl-KIx" secondAttribute="top" id="PBm-MU-KIs"/>
+                            <constraint firstItem="6cb-yc-QEA" firstAttribute="leading" secondItem="H30-Kl-KIx" secondAttribute="leading" id="VYe-BQ-7Ej"/>
+                            <constraint firstItem="6cb-yc-QEA" firstAttribute="centerX" secondItem="dzd-19-oOm" secondAttribute="centerX" id="vik-1o-mRd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="BhY-md-JVr"/>
+                    <connections>
+                        <outlet property="tableView" destination="6cb-yc-QEA" id="CCN-P2-d8s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IB1-YW-UFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2311.594202898551" y="513.61607142857144"/>
         </scene>
     </scenes>
     <resources>

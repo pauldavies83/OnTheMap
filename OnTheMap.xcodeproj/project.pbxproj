@@ -19,6 +19,7 @@
 		A934F9402610D93F00D54F74 /* PinsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A934F93F2610D93F00D54F74 /* PinsMapViewController.swift */; };
 		A934F9432610D95400D54F74 /* PinsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A934F9422610D95400D54F74 /* PinsTableViewController.swift */; };
 		A97AC8AF26125DE000468460 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AC8AE26125DE000468460 /* Location.swift */; };
+		A97AC8B62613348600468460 /* PinsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AC8B52613348600468460 /* PinsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		A934F93F2610D93F00D54F74 /* PinsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsMapViewController.swift; sourceTree = "<group>"; };
 		A934F9422610D95400D54F74 /* PinsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsTableViewController.swift; sourceTree = "<group>"; };
 		A97AC8AE26125DE000468460 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		A97AC8B52613348600468460 /* PinsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				A908D9692610AE86001832BD /* LoginViewController.swift */,
 				A934F93F2610D93F00D54F74 /* PinsMapViewController.swift */,
 				A934F9422610D95400D54F74 /* PinsTableViewController.swift */,
+				A97AC8B52613348600468460 /* PinsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				A934F9402610D93F00D54F74 /* PinsMapViewController.swift in Sources */,
 				A97AC8AF26125DE000468460 /* Location.swift in Sources */,
 				A908D96A2610AE86001832BD /* LoginViewController.swift in Sources */,
+				A97AC8B62613348600468460 /* PinsViewController.swift in Sources */,
 				A908D9662610AE86001832BD /* AppDelegate.swift in Sources */,
 				A908D9682610AE86001832BD /* SceneDelegate.swift in Sources */,
 				A908D98A2610BF53001832BD /* CreateSessionResponse.swift in Sources */,
