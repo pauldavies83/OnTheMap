@@ -20,6 +20,7 @@
 		A934F9432610D95400D54F74 /* PinsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A934F9422610D95400D54F74 /* PinsTableViewController.swift */; };
 		A97AC8AF26125DE000468460 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AC8AE26125DE000468460 /* StudentInformation.swift */; };
 		A97AC8B62613348600468460 /* PinsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AC8B52613348600468460 /* PinsViewController.swift */; };
+		A97AC8BA2613562B00468460 /* AddPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AC8B92613562B00468460 /* AddPinViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		A934F9422610D95400D54F74 /* PinsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsTableViewController.swift; sourceTree = "<group>"; };
 		A97AC8AE26125DE000468460 /* StudentInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 		A97AC8B52613348600468460 /* PinsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsViewController.swift; sourceTree = "<group>"; };
+		A97AC8B92613562B00468460 /* AddPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPinViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				A934F93F2610D93F00D54F74 /* PinsMapViewController.swift */,
 				A934F9422610D95400D54F74 /* PinsTableViewController.swift */,
 				A97AC8B52613348600468460 /* PinsViewController.swift */,
+				A97AC8B92613562B00468460 /* AddPinViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A908D97F2610BCFA001832BD /* UdacityAPI.swift in Sources */,
+				A97AC8BA2613562B00468460 /* AddPinViewController.swift in Sources */,
 				A934F9432610D95400D54F74 /* PinsTableViewController.swift in Sources */,
 				A908D9872610BF12001832BD /* CreateSessionRequest.swift in Sources */,
 				A934F9402610D93F00D54F74 /* PinsMapViewController.swift in Sources */,

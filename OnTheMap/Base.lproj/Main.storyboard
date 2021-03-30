@@ -176,6 +176,44 @@
             </objects>
             <point key="canvasLocation" x="2311.594202898551" y="-200.22321428571428"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2w8-Gz-v6j">
+            <objects>
+                <navigationController storyboardIdentifier="AddPinNavigationController" id="LNG-nM-Arx" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="icon_back-arrow" id="hSs-wz-JJi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1Sm-Ko-uDR" kind="relationship" relationship="rootViewController" id="3cE-FT-3ZE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4YJ-0F-QaR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3291" y="149"/>
+        </scene>
+        <!--Add Location-->
+        <scene sceneID="fvC-Gd-kRV">
+            <objects>
+                <viewController id="1Sm-Ko-uDR" customClass="AddPinViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8gT-P2-YE3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="3ec-Fh-0xZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Location" id="bHA-F5-2fE">
+                        <barButtonItem key="leftBarButtonItem" title="CANCEL" id="u9z-4H-5Oj">
+                            <connections>
+                                <action selector="cancel:" destination="1Sm-Ko-uDR" id="Idb-q0-ybG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AMa-fc-zxh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4013" y="149"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="J9s-9V-KBq">
             <objects>
@@ -257,6 +295,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_back-arrow" width="24" height="24"/>
         <image name="icon_listview-deselected" width="75" height="50"/>
         <image name="icon_mapview-deselected" width="75" height="50"/>
         <image name="icon_pin" width="24" height="24"/>
