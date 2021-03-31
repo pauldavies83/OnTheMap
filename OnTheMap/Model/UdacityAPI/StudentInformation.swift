@@ -7,6 +7,22 @@
 
 import UIKit
 
+class StudentInformationDataSource {
+    
+    static let sharedInstance = StudentInformationDataSource()
+    
+    var studentInformation: [StudentInformation] = []
+    
+    func refreshData(completion: @escaping (UdacityAPI.UdacityAPIError?) -> Void) {
+        UdacityAPI.getStudentLocations { (locations, error) in
+            if error == nil {
+                self.studentInformation = locations
+            }
+            completion(error)
+        }
+    }
+}
+
 struct StudentInformationResponse: Codable {
     let results: [StudentInformation]
 }

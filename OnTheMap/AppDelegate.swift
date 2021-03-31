@@ -7,25 +7,8 @@
 
 import UIKit
 
-protocol StudentInformationDataSource {
-    var studentInformation: [StudentInformation] { get }
-    
-    func refreshData(completion: @escaping (Error?) -> Void)
-}
-
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, StudentInformationDataSource {
-    
-    var studentInformation: [StudentInformation] = []
-    
-    func refreshData(completion: @escaping (Error?) -> Void) {
-        UdacityAPI.getStudentLocations { (locations, error) in
-            if error == nil {
-                self.studentInformation = locations
-            }
-            completion(error)
-        }
-    }
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

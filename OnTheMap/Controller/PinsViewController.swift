@@ -9,9 +9,8 @@ import UIKit
 
 class PinsViewController: UIViewController {
 
-    let locationsDataSource =  (UIApplication.shared.delegate as! StudentInformationDataSource)
     var locations: [StudentInformation] {
-        return locationsDataSource.studentInformation
+        return StudentInformationDataSource.sharedInstance.studentInformation
     }
     
     var refreshDataCompleted: (() -> Void)? = nil
@@ -52,9 +51,13 @@ class PinsViewController: UIViewController {
     @objc func refresh() {
         configureUI(isLoading: true)
 
-        locationsDataSource.refreshData { (error) in
+        StudentInformationDataSource.sharedInstance.refreshData { (error) in
             self.configureUI(isLoading: false)
             self.refreshDataCompleted?()
+            
+            if error != nil {
+                self.presentErrorAlert(title: "Unable to refresh data", message: error?.description)
+            }
         }
     }
     

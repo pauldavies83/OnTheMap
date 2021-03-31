@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
             configureUI(isLoading: true)
             UdacityAPI.createSession(username: emailTextField.text!, password: passwordTextField.text!) { (success, error) in
                 if success {
-                    (UIApplication.shared.delegate as! StudentInformationDataSource).refreshData { (error) in
+                    StudentInformationDataSource.sharedInstance.refreshData { (error) in
                         self.configureUI(isLoading: false)
                         self.emailTextField.text = ""
                         self.passwordTextField.text = ""
@@ -51,12 +51,7 @@ class LoginViewController: UIViewController {
         next.modalPresentationStyle = .fullScreen
         self.present(next, animated: true, completion: nil)
     }
-    
-    fileprivate func presentErrorAlert(title: String, message: String?) {
-        let alertVC = UIAlertController(title: title, message: message?.description ?? "", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertVC, animated: false, completion: nil)
-    }
+
     
     func configureUI(isLoading: Bool) {
         activityView.isHidden = !isLoading
@@ -72,3 +67,11 @@ class LoginViewController: UIViewController {
     }
 }
 
+extension UIViewController {
+    func presentErrorAlert(title: String, message: String?) {
+        let alertVC = UIAlertController(title: title, message: message?.description ?? "", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alertVC.modalPresentationStyle = .overFullScreen
+        self.present(alertVC, animated: false, completion: nil)
+    }
+}

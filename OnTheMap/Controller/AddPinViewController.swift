@@ -60,13 +60,6 @@ class AddPinViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    fileprivate func presentErrorAlert(title: String, message: String?) {
-        let alertVC = UIAlertController(title: title, message: message?.description ?? "", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        alertVC.modalPresentationStyle = .overFullScreen
-        self.present(alertVC, animated: true, completion: nil)
-    }
-    
     func configureUI(isLoading: Bool) {
         locationText.isEnabled = !isLoading
         linkText.isEnabled = !isLoading

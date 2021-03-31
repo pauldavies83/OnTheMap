@@ -46,13 +46,6 @@ class VerifyLocationViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    fileprivate func presentErrorAlert(title: String, message: String?) {
-        let alertVC = UIAlertController(title: title, message: message?.description ?? "", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        alertVC.modalPresentationStyle = .overFullScreen
-        self.present(alertVC, animated: true, completion: nil)
-    }
-    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let identifier = "annotation"
         var view: MKMarkerAnnotationView
