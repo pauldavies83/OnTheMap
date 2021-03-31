@@ -26,8 +26,8 @@ class PinsViewController: UIViewController {
         uiBusy.hidesWhenStopped = true
         uiBusy.isUserInteractionEnabled = false
 
-        self.navigationItem.title = "On The Map"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "LOGOUT", style: .plain, target: self, action: #selector(self.logout))
+        navigationItem.title = "On The Map"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "LOGOUT", style: .plain, target: self, action: #selector(self.logout))
         
         busyButton = UIBarButtonItem(customView: uiBusy)
         refreshButton = UIBarButtonItem(image: UIImage(named: "icon_refresh"), style: .plain, target: self, action: #selector(self.refresh))
